@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Neighbourly Net – Coming Soon</title>
+
+<style>
+:root{
+  --primary:#1e6fd9;
+  --dark:#0f2a44;
+  --light:#e9f3ff;
+  --accent:#39a9ff;
+}
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+  background: linear-gradient(135deg, var(--dark), var(--primary));
+  color:white;
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+}
+
+.container{
+  max-width:900px;
+  width:100%;
+  text-align:center;
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(10px);
+  border-radius:18px;
+  padding:40px 25px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.3);
+}
+
+.logo{
+  max-width:100px;
+  margin-bottom:10px;
+}
+
+.badge{
+  background:var(--accent);
+  padding:6px 14px;
+  border-radius:20px;
+  display:inline-block;
+  margin:15px 0;
+  font-size:0.9rem;
+}
+
+h1{
+  font-size:2.4rem;
+  margin-bottom:5px;
+}
+
+.subtitle{
+  color:#cfe6ff;
+  margin-bottom:20px;
+}
+
+.construction-image{
+  width:100%;
+  max-width:420px;
+  margin:25px auto;
+  display:block;
+  border-radius:12px;
+}
+
+.construction-text{
+  font-size:1.2rem;
+  margin-bottom:25px;
+}
+
+.countdown{
+  display:flex;
+  justify-content:center;
+  gap:15px;
+  flex-wrap:wrap;
+}
+
+.time-box{
+  background:white;
+  color:var(--dark);
+  padding:15px 20px;
+  border-radius:12px;
+  min-width:90px;
+}
+
+.time-box h2{
+  font-size:2rem;
+}
+
+.time-box span{
+  font-size:0.8rem;
+  text-transform:uppercase;
+  opacity:0.7;
+}
+
+footer{
+  margin-top:30px;
+  font-size:0.9rem;
+  color:#cfe6ff;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <img src="logo.jpeg" alt="Neighbourly Net Logo" class="logo">
+
+  <div class="badge">Website Coming Soon</div>
+
+  <h1>Neighbourly Net</h1>
+  <p class="subtitle">Connecting Baagisane</p>
+
+  <!-- Construction Image -->
+  <img src="construction.webp" alt="Website Under Construction" class="construction-image">
+
+  <p class="construction-text">
+    🚧 Our website is currently under construction.<br>
+    We are building something great for your community WiFi.
+  </p>
+
+  <div class="countdown">
+    <div class="time-box">
+      <h2 id="days">00</h2>
+      <span>Days</span>
+    </div>
+    <div class="time-box">
+      <h2 id="hours">00</h2>
+      <span>Hours</span>
+    </div>
+    <div class="time-box">
+      <h2 id="minutes">00</h2>
+      <span>Minutes</span>
+    </div>
+    <div class="time-box">
+      <h2 id="seconds">00</h2>
+      <span>Seconds</span>
+    </div>
+  </div>
+
+  <footer>
+    © <span id="year"></span> Neighbourly Net • Launching Soon
+  </footer>
+
+</div>
+
+<script>
+const launchDate = new Date("2026-04-01 00:00:00").getTime();
+
+const timer = setInterval(function(){
+  const now = new Date().getTime();
+  const distance = launchDate - now;
+
+  const days = Math.floor(distance / (1000*60*60*24));
+  const hours = Math.floor((distance % (1000*60*60*24)) / (1000*60*60));
+  const minutes = Math.floor((distance % (1000*60*60)) / (1000*60));
+  const seconds = Math.floor((distance % (1000*60)) / 1000);
+
+  document.getElementById("days").innerText = days;
+  document.getElementById("hours").innerText = hours;
+  document.getElementById("minutes").innerText = minutes;
+  document.getElementById("seconds").innerText = seconds;
+
+  if(distance < 0){
+    clearInterval(timer);
+    document.querySelector(".countdown").innerHTML = "We are live!";
+  }
+},1000);
+
+document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
