@@ -1,184 +1,612 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Neighbourly Net – Coming Soon</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<title>NeighbourlyNet</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
 
 <style>
-:root{
-  --primary:#1e6fd9;
-  --dark:#0f2a44;
-  --light:#e9f3ff;
-  --accent:#39a9ff;
-}
 
 *{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-  font-family: Arial, Helvetica, sans-serif;
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Poppins,sans-serif;
+}
+
+html{
+scroll-behavior:smooth;
 }
 
 body{
-  background: linear-gradient(135deg, var(--dark), var(--primary));
-  color:white;
-  min-height:100vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  padding:20px;
+background:linear-gradient(135deg,#9d7337,#0f3d91);
+color:white;
 }
 
-.container{
-  max-width:900px;
-  width:100%;
-  text-align:center;
-  background: rgba(255,255,255,0.05);
-  backdrop-filter: blur(10px);
-  border-radius:18px;
-  padding:40px 25px;
-  box-shadow:0 10px 30px rgba(0,0,0,0.3);
+nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:25px 8%;
 }
 
 .logo{
-  max-width:100px;
-  margin-bottom:10px;
+font-size:34px;
+font-weight:700;
 }
 
-.badge{
-  background:var(--accent);
-  padding:6px 14px;
-  border-radius:20px;
-  display:inline-block;
-  margin:15px 0;
-  font-size:0.9rem;
+nav ul{
+display:flex;
+gap:25px;
+list-style:none;
 }
 
-h1{
-  font-size:2.4rem;
-  margin-bottom:5px;
+nav a{
+text-decoration:none;
+color:white;
 }
 
-.subtitle{
-  color:#cfe6ff;
-  margin-bottom:20px;
+.hero{
+padding:80px 20px;
+text-align:center;
 }
 
-.construction-image{
-  width:100%;
-  max-width:420px;
-  margin:25px auto;
-  display:block;
-  border-radius:12px;
+.hero-image{
+width:600px;
+max-width:90%;
+margin-bottom:30px;
+border-radius:20px;
+box-shadow:0 10px 30px rgba(0,0,0,.35);
 }
 
-.construction-text{
-  font-size:1.2rem;
-  margin-bottom:25px;
+.hero h1{
+font-size:60px;
 }
 
-.countdown{
-  display:flex;
-  justify-content:center;
-  gap:15px;
-  flex-wrap:wrap;
+.hero p{
+margin-top:20px;
+font-size:22px;
 }
 
-.time-box{
-  background:white;
-  color:var(--dark);
-  padding:15px 20px;
-  border-radius:12px;
-  min-width:90px;
+.btn{
+display:inline-block;
+margin-top:30px;
+padding:15px 35px;
+background:#d9be4d;
+border-radius:40px;
+text-decoration:none;
+color:black;
+font-weight:700;
 }
 
-.time-box h2{
-  font-size:2rem;
+.coverage{
+padding:80px 20px;
+text-align:center;
 }
 
-.time-box span{
-  font-size:0.8rem;
-  text-transform:uppercase;
-  opacity:0.7;
+#map{
+width:100%;
+height:500px;
+margin-top:30px;
+border-radius:20px;
+overflow:hidden;
+}
+
+.result{
+margin-top:25px;
+font-size:20px;
+}
+
+.pricing{
+display:flex;
+justify-content:center;
+gap:30px;
+padding:80px 20px;
+flex-wrap:wrap;
+}
+
+.card{
+width:320px;
+background:rgba(255,255,255,.75);
+backdrop-filter:blur(10px);
+border-radius:30px;
+overflow:hidden;
+color:black;
+}
+
+.card h2{
+padding:25px;
+text-align:center;
+}
+
+.price{
+background:#d9be4d;
+padding:15px;
+text-align:center;
+font-size:24px;
+font-weight:bold;
+}
+
+.features{
+padding:25px;
+}
+
+.features p{
+padding:12px;
+text-align:center;
+border-bottom:1px solid grey;
+}
+
+.features p:last-child{
+border:none;
+}
+
+.section{
+padding:80px 10%;
+text-align:center;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:30px;
+margin-top:50px;
+}
+
+.box{
+background:rgba(255,255,255,.1);
+padding:30px;
+border-radius:20px;
+}
+
+.testimonial{
+background:rgba(255,255,255,.15);
+padding:30px;
+border-radius:20px;
+}
+
+.faq{
+max-width:800px;
+margin:auto;
+}
+
+details{
+background:white;
+color:black;
+padding:20px;
+margin-top:15px;
+border-radius:10px;
+}
+
+form{
+max-width:600px;
+margin:auto;
+display:flex;
+flex-direction:column;
+gap:15px;
+}
+
+form input{
+padding:15px;
+border:none;
+border-radius:10px;
+}
+
+form button{
+padding:15px;
+background:#d9be4d;
+border:none;
+border-radius:10px;
+font-weight:bold;
 }
 
 footer{
-  margin-top:30px;
-  font-size:0.9rem;
-  color:#cfe6ff;
+padding:40px;
+text-align:center;
 }
+
+.whatsapp{
+position:fixed;
+bottom:25px;
+right:25px;
+width:60px;
+height:60px;
+background:#25D366;
+border-radius:50%;
+display:flex;
+justify-content:center;
+align-items:center;
+font-size:30px;
+text-decoration:none;
+color:white;
+}
+
+@media(max-width:768px){
+
+.hero h1{
+font-size:40px;
+}
+
+.hero-image{
+width:95%;
+}
+
+}
+
 </style>
 </head>
 
 <body>
 
-<div class="container">
+<nav>
 
-  <img src="logo.jpeg" alt="Neighbourly Net Logo" class="logo">
+<div class="logo">
+NeighbourlyNet
+</div>
 
-  <div class="badge">Website Coming Soon</div>
+<ul>
 
-  <h1>Neighbourly Net</h1>
-  <p class="subtitle">Connecting Baagisane</p>
+<li><a href="#pricing">Packages</a></li>
 
-  <!-- Construction Image -->
-  <img src="construction.webp" alt="Website Under Construction" class="construction-image">
+<li><a href="#faq">FAQ</a></li>
 
-  <p class="construction-text">
-    🚧 Our website is currently under construction.<br>
-    We are building something great for your community WiFi.
-  </p>
+<li><a href="#contact">Contact</a></li>
 
-  <div class="countdown">
-    <div class="time-box">
-      <h2 id="days">00</h2>
-      <span>Days</span>
-    </div>
-    <div class="time-box">
-      <h2 id="hours">00</h2>
-      <span>Hours</span>
-    </div>
-    <div class="time-box">
-      <h2 id="minutes">00</h2>
-      <span>Minutes</span>
-    </div>
-    <div class="time-box">
-      <h2 id="seconds">00</h2>
-      <span>Seconds</span>
-    </div>
-  </div>
+</ul>
 
-  <footer>
-    © <span id="year"></span> Neighbourly Net • Launching Soon
-  </footer>
+</nav>
+
+
+
+<section class="hero">
+
+<img
+src="mining626.jpg"
+class="hero-image"
+alt="NeighbourlyNet Header">
+
+<h1>
+Fast Reliable Internet
+</h1>
+
+<p>
+Connecting Communities
+</p>
+
+<a class="btn" href="#pricing">
+Get Connected
+</a>
+
+</section>
+
+
+
+<section class="coverage">
+
+<h2>
+Check Signal Availability
+</h2>
+
+<div id="map"></div>
+
+<p>
+Click anywhere on the map to check coverage.
+</p>
+
+<div class="result" id="result"></div>
+
+</section>
+
+
+
+
+<section class="pricing" id="pricing">
+
+<div class="card">
+
+<h2>GELEZA DEAL</h2>
+
+<div class="price">
+R40/WEEK
+</div>
+
+<div class="features">
+
+<p><b>1 DEVICE</b></p>
+<p><b>5MBPS SPEED</b></p>
+<p>SUPPORT</p>
+<p>FREE ACCESS</p>
+<p>NO ROUTER</p>
 
 </div>
 
+</div>
+
+
+
+<div class="card">
+
+<h2>PREMIUM DELUXE</h2>
+
+<div class="price">
+R299/MONTH
+</div>
+
+<div class="features">
+
+<p><b>7 DEVICES</b></p>
+<p><b>10MBPS SPEED</b></p>
+<p>FULL SUPPORT</p>
+<p>SUPPORTS WIFI6</p>
+<p>COMES WITH ROUTER</p>
+
+</div>
+
+</div>
+
+
+
+
+<div class="card">
+
+<h2>JOHN "WEEK"</h2>
+
+<div class="price">
+R80/WEEK
+</div>
+
+<div class="features">
+
+<p><b>4 DEVICES</b></p>
+<p>7MBPS SPEED</p>
+<p>FULL SUPPORT</p>
+<p>FREE ACCESS</p>
+<p>NO ROUTER</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+
+<section class="section">
+
+<h2>
+Why Choose Us
+</h2>
+
+<div class="grid">
+
+<div class="box">
+Affordable Pricing
+</div>
+
+<div class="box">
+Fast Installations
+</div>
+
+<div class="box">
+Reliable Connectivity
+</div>
+
+<div class="box">
+Friendly Support
+</div>
+
+</div>
+
+</section>
+
+
+
+
+<section class="section">
+
+<h2>
+Testimonials
+</h2>
+
+<div class="grid">
+
+<div class="testimonial">
+
+★★★★★
+
+<br><br>
+
+NeighbourlyNet keeps my family connected every day.
+
+</div>
+
+
+
+<div class="testimonial">
+
+★★★★★
+
+<br><br>
+
+Affordable and dependable.
+
+</div>
+
+</div>
+
+</section>
+
+
+
+
+<section class="section faq" id="faq">
+
+<h2>
+Frequently Asked Questions
+</h2>
+
+<details>
+
+<summary>
+Installation Time
+</summary>
+
+1-3 Business Days
+
+</details>
+
+
+
+<details>
+
+<summary>
+Router Included
+</summary>
+
+Premium Deluxe includes router
+
+</details>
+
+
+
+<details>
+
+<summary>
+Support Available
+</summary>
+
+Support available for all packages
+
+</details>
+
+</section>
+
+
+
+
+<section class="section" id="contact">
+
+<h2>
+Request Installation
+</h2>
+
+<form>
+
+<input placeholder="Full Name">
+
+<input placeholder="Phone Number">
+
+<input placeholder="Address">
+
+<button>
+
+Submit Request
+
+</button>
+
+</form>
+
+
+<h3 style="margin-top:50px">
+
++27 69 296 2110
+
+</h3>
+
+</section>
+
+
+
+<footer>
+
+©2025 NeighbourlyNet
+
+</footer>
+
+
+
+<a class="whatsapp"
+href="https://wa.me/27692962110">
+
+☎
+
+</a>
+
+
 <script>
-const launchDate = new Date("2026-04-01 00:00:00").getTime();
 
-const timer = setInterval(function(){
-  const now = new Date().getTime();
-  const distance = launchDate - now;
+function initMap(){
 
-  const days = Math.floor(distance / (1000*60*60*24));
-  const hours = Math.floor((distance % (1000*60*60*24)) / (1000*60*60));
-  const minutes = Math.floor((distance % (1000*60*60)) / (1000*60));
-  const seconds = Math.floor((distance % (1000*60)) / 1000);
+const center={
+lat:-26.2041,
+lng:28.0473
+};
 
-  document.getElementById("days").innerText = days;
-  document.getElementById("hours").innerText = hours;
-  document.getElementById("minutes").innerText = minutes;
-  document.getElementById("seconds").innerText = seconds;
+const map=new google.maps.Map(
 
-  if(distance < 0){
-    clearInterval(timer);
-    document.querySelector(".countdown").innerHTML = "We are live!";
-  }
-},1000);
+document.getElementById("map"),
 
-document.getElementById("year").textContent = new Date().getFullYear();
+{
+zoom:11,
+center:center
+}
+
+);
+
+
+const marker=new google.maps.Marker({
+
+position:center,
+map:map
+
+});
+
+
+map.addListener(
+
+"click",
+
+(event)=>{
+
+
+marker.setPosition(event.latLng);
+
+
+document.getElementById("result").innerHTML=
+
+
+"✅ Coverage check requested at:<br><br>"+
+
+event.latLng.lat().toFixed(6)
+
++
+
+", "
+
++
+
+event.latLng.lng().toFixed(6)
+
++
+
+"<br><br>Estimated installation: 2–3 Days";
+
+});
+
+
+}
+
+</script>
+
+
+
+<script async defer
+src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY&callback=initMap">
 </script>
 
 </body>
